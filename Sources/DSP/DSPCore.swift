@@ -1,3 +1,7 @@
+// Portions of this file are adapted from SystemEQ for Mac by denzam and contributors
+// (https://github.com/denzam/SystemEQ-for-Mac, GPLv3). Modified for Timbre, October 2026.
+// See NOTICE for details. Timbre is licensed under the GNU GPL v3 (see LICENSE).
+
 import Accelerate
 import Foundation
 

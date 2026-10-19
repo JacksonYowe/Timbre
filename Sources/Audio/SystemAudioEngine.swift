@@ -1,3 +1,7 @@
+// Portions of this file are adapted from SystemEQ for Mac by denzam and contributors
+// (https://github.com/denzam/SystemEQ-for-Mac, GPLv3). Modified for Timbre, October 2026.
+// See NOTICE for details. Timbre is licensed under the GNU GPL v3 (see LICENSE).
+
 import Accelerate
 import AppKit
 import CoreAudio
@@ -6,7 +10,7 @@ import Foundation
 // System-wide capture via a Core Audio process tap (macOS 14.4+): every app's sound is
 // tapped and muted, run through the EQ, and played on the real output through a private
 // aggregate device. No virtual driver (BlackHole) needed.
-// Tap/aggregate setup adapted from SystemEQ for Mac's ProcessTapEngine (GPLv3).
+// Tap/aggregate setup adapted from SystemEQ for Mac's ProcessTapEngine.
 
 final class SystemAudioEngine {
     enum State: Equatable {

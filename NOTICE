@@ -1,0 +1,77 @@
+Timbre
+Copyright (C) 2026 Timbre contributors
+
+Timbre is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version. It is distributed WITHOUT ANY WARRANTY; see the LICENSE file.
+
+-------------------------------------------------------------------------------
+Derived work: SystemEQ for Mac
+-------------------------------------------------------------------------------
+Parts of Timbre are adapted from SystemEQ for Mac by denzam and contributors,
+https://github.com/denzam/SystemEQ-for-Mac (version 1.4.4), licensed under the
+GNU General Public License v3. Copyright in that code remains with its authors.
+
+The following Timbre files contain code adapted from SystemEQ for Mac. They
+were modified for Timbre in October 2026:
+
+  Sources/Audio/SystemAudioEngine.swift
+      Process-tap + private aggregate device setup, IOProc and stereo render
+      path (from Audio/ProcessTapEngine.swift). Modified: rewritten around a
+      lock-free DSP core; output/sample-rate/wake handling; watchdog and
+      give-up safety net; single tap-stream finder.
+
+  Sources/Audio/CoreAudioHelpers.swift
+      Core Audio property helpers (from Audio/ProcessTapEngine.swift).
+      Modified: generalised into typed helpers; process list for detection.
+
+  Sources/DSP/Biquad.swift
+      Biquad coefficient designs (RBJ Audio EQ Cookbook) and the output safety
+      limiter (from Audio/BiquadFilterVDSP.swift). Modified: double precision,
+      non-finite and range guards, response/headroom maths at the device rate.
+
+  Sources/DSP/DSPCore.swift
+      vDSP_biquad cascade setup (from Audio/BiquadFilterVDSP.swift). Modified:
+      immutable filter chains handed to the audio thread lock-free, state
+      inheritance and crossfades, A/B bypass ramp, analyser ring buffer.
+
+All other files were written for Timbre.
+
+-------------------------------------------------------------------------------
+Third-party material
+-------------------------------------------------------------------------------
+AutoEQ (https://github.com/jaakkopasanen/AutoEq)
+  The in-ear neutral target values in Sources/Model/IEMSetup.swift and the
+  EQ file formats Timbre reads come from AutoEQ.
+
+  MIT License
+  Copyright (c) 2018-2022 Jaakko Pasanen
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+
+Fonts (Resources/Fonts), each under the SIL Open Font License 1.1
+(https://openfontlicense.org); copyright and licence notices are also embedded
+in each font file:
+  Manrope            Copyright 2019 The Manrope Project Authors
+  Instrument Serif   Copyright 2022 The Instrument Serif Project Authors
+  JetBrains Mono     Copyright 2020 The JetBrains Mono Project Authors
+
+Genre information is looked up at runtime from Apple's iTunes Search API; no
+Apple data is included in this repository.

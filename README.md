@@ -32,4 +32,4 @@ On first use, macOS asks for **System Audio Recording** (to equalise your sound)
 - Fonts are Manrope, Instrument Serif and JetBrains Mono (SIL Open Font License).
 
 ## License
-GPL-3.0. See [LICENSE](LICENSE). You're free to use, study, change and share Timbre; if you distribute a modified version, it must also be GPL-3.0 with its source available.
+GPL-3.0. See [LICENSE](LICENSE), and [NOTICE](NOTICE) for which files are adapted from SystemEQ for Mac and for third-party licences. You're free to use, study, change and share Timbre; if you distribute a modified version, it must also be GPL-3.0 with its source available.
